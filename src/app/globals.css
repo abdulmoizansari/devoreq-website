@@ -14,7 +14,8 @@
 }
 
 body {
-  background-color: #F8FAFC;
+  background: linear-gradient(to bottom right, #F8FAFC, #EFF6FF);
+  min-height: 100vh;
   color: #0F172A;
   font-family: var(--font-sans), sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -45,7 +46,7 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 
 .section-title {
   font-size: 32px;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -1px;
   font-weight: 500;
 }
@@ -64,6 +65,13 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   background-position: 0 0, 18px 18px;
 }
 
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid #E2E8F0;
+}
+
 /* Primary Button */
 .btn-gold { 
   background: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%);
@@ -72,7 +80,7 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   font-weight: 500; 
   font-size: 15px;
   padding: .85rem 1.6rem; 
-  border-radius: 9999px;
+  border-radius: 12px;
   display: inline-flex; 
   align-items: center; 
   gap: .5rem; 
@@ -82,7 +90,7 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 .btn-gold:hover { 
   transform: translateY(-2px); 
   filter: brightness(1.05); 
-  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.5), 0 0 15px rgba(125, 211, 252, 0.5); 
+  box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4), 0 0 15px rgba(125, 211, 252, 0.5); 
 }
 .btn-gold:active { transform: scale(.98); }
 
@@ -90,13 +98,14 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 .btn-ghost { 
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid #E2E8F0; 
   color: #0F172A !important; 
   font-family: var(--font-sans), sans-serif;
   font-weight: 500;
   font-size: 15px;
   padding: .85rem 1.6rem; 
-  border-radius: 9999px; 
+  border-radius: 12px; 
   display: inline-flex; 
   align-items: center; 
   gap: .5rem; 
