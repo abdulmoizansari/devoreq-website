@@ -7,6 +7,7 @@ import { PORTFOLIO_IMAGES } from "@/lib/portfolioData";
 function PortfolioPage() {
   const ref = useReveal<HTMLDivElement>();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [visibleCount, setVisibleCount] = useState<number>(12);
 
   const navigate = (direction: 1 | -1, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -25,11 +26,11 @@ function PortfolioPage() {
         <section className="bg-[#F8FAFC] py-16">
           <div className="mx-auto max-w-7xl px-6">
             <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
-              {PORTFOLIO_IMAGES.map((src, i) => (
+              {PORTFOLIO_IMAGES.slice(0, visibleCount).map((src, i) => (
                 <button 
                   key={i} 
                   onClick={() => setActiveIndex(i)} 
-                  className="reveal block w-full rounded-xl overflow-hidden hover:opacity-90 transition-opacity"
+                  className="reveal block w-full rounded-xl overflow-hidden hover:opacity-90 transition-opacity bg-black/5"
                 >
                   {src.match(/\.(mp4|webm)$/i) ? (
                     <video src={src} autoPlay loop muted playsInline className="w-full h-auto object-cover rounded-xl border border-[#E2E8F0]" />
@@ -39,6 +40,14 @@ function PortfolioPage() {
                 </button>
               ))}
             </div>
+            
+            {visibleCount < PORTFOLIO_IMAGES.length && (
+              <div className="mt-12 flex justify-center reveal">
+                <button onClick={() => setVisibleCount(v => v + 12)} className="btn-ghost">
+                  Load More Works
+                </button>
+              </div>
+            )}
           </div>
         </section>
 
@@ -54,7 +63,9 @@ function PortfolioPage() {
               </button>
               
               {PORTFOLIO_IMAGES[activeIndex].match(/\.(mp4|webm)$/i) ? (
-                <video src={PORTFOLIO_IMAGES[activeIndex]} controls autoPlay className="max-h-[90vh] max-w-[85vw] object-contain rounded-lg shadow-2xl bg-black/10" />
+                <div className="w-[85vw] md:w-[70vw] max-w-5xl rounded-lg overflow-hidden bg-black shadow-2xl">
+                  <video src={PORTFOLIO_IMAGES[activeIndex]} controls autoPlay playsInline className="w-full h-auto max-h-[85vh] object-contain" />
+                </div>
               ) : (
                 <img src={PORTFOLIO_IMAGES[activeIndex]} alt="Portfolio zoom" className="max-h-[90vh] max-w-[85vw] object-contain rounded-lg shadow-2xl" />
               )}
