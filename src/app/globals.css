@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 .hero-title {
   font-size: 42px;
   line-height: 1.15;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   font-weight: 700;
 }
 @media (min-width: 768px) { .hero-title { font-size: 56px; } }
