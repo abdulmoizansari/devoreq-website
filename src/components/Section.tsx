@@ -13,7 +13,20 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>() {
       { threshold: 0.15 }
     );
     el.querySelectorAll(".reveal").forEach((n) => io.observe(n));
-    return () => io.disconnect();
+
+    const mo = new MutationObserver((mutations) => {
+      mutations.forEach((m) => {
+        m.addedNodes.forEach((n) => {
+          if (n instanceof HTMLElement) {
+            if (n.classList.contains("reveal")) io.observe(n);
+            n.querySelectorAll(".reveal").forEach((child) => io.observe(child));
+          }
+        });
+      });
+    });
+    mo.observe(el, { childList: true, subtree: true });
+
+    return () => { io.disconnect(); mo.disconnect(); };
   }, []);
   return ref;
 }
