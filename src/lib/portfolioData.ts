@@ -1,4 +1,6 @@
 export const PORTFOLIO_IMAGES = [
+  "/portfolio/videos/NnGdRYIn-6__576.mp4",
+  "/portfolio/videos/Sr94Anpfgmi_720.mp4",
   "/portfolio/A Mingled Yarn E-book Marketing Posts __ Behance/imgi_45_187336217957965.67994d898bbeb.jpeg",
   "/portfolio/A Mingled Yarn E-book Marketing Posts __ Behance/imgi_46_f77a2c217957965.67994d898e454.jpeg",
   "/portfolio/A Mingled Yarn E-book Marketing Posts __ Behance/imgi_53_cc1c34217957965.67994d898f4f2.jpeg",
@@ -100,7 +102,5 @@ export const PORTFOLIO_IMAGES = [
   "/portfolio/Whistle E-book Marketing Posts __ Behance/imgi_146_b34fcb217957707.67994c6b45939.jpeg",
   "/portfolio/Whistle E-book Marketing Posts __ Behance/imgi_148_832cc1217957707.67994c6b45093.jpeg",
   "/portfolio/Whistle E-book Marketing Posts __ Behance/imgi_150_de688f217957707.67994c6b466a8.jpeg",
-  "/portfolio/Whistle E-book Marketing Posts __ Behance/imgi_78_d12047217957707.67994c6b33bce.jpeg",
-  "/portfolio/videos/NnGdRYIn-6__576.mp4",
-  "/portfolio/videos/Sr94Anpfgmi_720.mp4"
+  "/portfolio/Whistle E-book Marketing Posts __ Behance/imgi_78_d12047217957707.67994c6b33bce.jpeg"
 ];

@@ -6,7 +6,16 @@ import { PORTFOLIO_IMAGES } from "@/lib/portfolioData";
 
 function PortfolioPage() {
   const ref = useReveal<HTMLDivElement>();
-  const [activeImage, setActiveImage] = useState<string | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+  const navigate = (direction: 1 | -1, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (activeIndex === null) return;
+    let newIndex = activeIndex + direction;
+    if (newIndex < 0) newIndex = PORTFOLIO_IMAGES.length - 1;
+    if (newIndex >= PORTFOLIO_IMAGES.length) newIndex = 0;
+    setActiveIndex(newIndex);
+  };
 
   return (
     <SiteShell>
@@ -19,7 +28,7 @@ function PortfolioPage() {
               {PORTFOLIO_IMAGES.map((src, i) => (
                 <button 
                   key={i} 
-                  onClick={() => setActiveImage(src)} 
+                  onClick={() => setActiveIndex(i)} 
                   className="reveal block w-full rounded-xl overflow-hidden hover:opacity-90 transition-opacity"
                 >
                   {src.match(/\.(mp4|webm)$/i) ? (
@@ -33,17 +42,26 @@ function PortfolioPage() {
           </div>
         </section>
 
-        {activeImage && (
-          <div className="fixed inset-0 z-[60] bg-[#F8FAFC]/90 backdrop-blur-sm flex items-center justify-center p-4 overflow-hidden" onClick={() => setActiveImage(null)}>
-            <div className="relative max-h-[90vh] max-w-[90vw] w-auto h-auto" onClick={(e) => e.stopPropagation()}>
-              <button className="absolute -top-12 right-0 text-[#0F172A] hover:text-[#0EA5E9] transition-colors" onClick={() => setActiveImage(null)}>
+        {activeIndex !== null && (
+          <div className="fixed inset-0 z-[60] bg-[#F8FAFC]/90 backdrop-blur-sm flex items-center justify-center p-4 overflow-hidden" onClick={() => setActiveIndex(null)}>
+            <div className="relative max-h-[90vh] max-w-[90vw] w-auto h-auto flex items-center" onClick={(e) => e.stopPropagation()}>
+              <button className="absolute -left-12 md:-left-16 text-[#0F172A] hover:text-[#0EA5E9] transition-colors p-2" onClick={(e) => navigate(-1, e)}>
+                <i className="ti ti-chevron-left text-4xl" />
+              </button>
+              
+              <button className="absolute -top-12 right-0 text-[#0F172A] hover:text-[#0EA5E9] transition-colors" onClick={() => setActiveIndex(null)}>
                 <i className="ti ti-x text-3xl" />
               </button>
-              {activeImage.match(/\.(mp4|webm)$/i) ? (
-                <video src={activeImage} controls autoPlay className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-2xl bg-black/10" />
+              
+              {PORTFOLIO_IMAGES[activeIndex].match(/\.(mp4|webm)$/i) ? (
+                <video src={PORTFOLIO_IMAGES[activeIndex]} controls autoPlay className="max-h-[90vh] max-w-[85vw] object-contain rounded-lg shadow-2xl bg-black/10" />
               ) : (
-                <img src={activeImage} alt="Portfolio zoom" className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-2xl" />
+                <img src={PORTFOLIO_IMAGES[activeIndex]} alt="Portfolio zoom" className="max-h-[90vh] max-w-[85vw] object-contain rounded-lg shadow-2xl" />
               )}
+              
+              <button className="absolute -right-12 md:-right-16 text-[#0F172A] hover:text-[#0EA5E9] transition-colors p-2" onClick={(e) => navigate(1, e)}>
+                <i className="ti ti-chevron-right text-4xl" />
+              </button>
             </div>
           </div>
         )}
