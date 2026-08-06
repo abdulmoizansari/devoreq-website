@@ -23,7 +23,7 @@ function PortfolioPage() {
       <div ref={ref}>
         <PageHeader title="Our Published Works." subtitle="Explore books we have written, designed, published, and launched." />
 
-        <section className="bg-[#F8FAFC] py-16">
+        <section className="bg-[#F8F5EE] py-16">
           <div className="mx-auto max-w-7xl px-6">
             <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
               {PORTFOLIO_IMAGES.slice(0, visibleCount).map((src, i) => (
@@ -33,9 +33,9 @@ function PortfolioPage() {
                   className="reveal block w-full rounded-xl overflow-hidden hover:opacity-90 transition-opacity bg-black/5"
                 >
                   {src.match(/\.(mp4|webm)$/i) ? (
-                    <video src={src} autoPlay loop muted playsInline className="w-full h-auto object-cover rounded-xl border border-[#E2E8F0]" />
+                    <video src={src} autoPlay loop muted playsInline className="w-full h-auto object-cover rounded-xl border border-[#0F172A]/10" />
                   ) : (
-                    <img src={src} alt={`Portfolio work ${i + 1}`} className="w-full h-auto object-cover rounded-xl border border-[#E2E8F0]" loading="lazy" />
+                    <img src={src} alt={`Portfolio work ${i + 1}`} className="w-full h-auto object-cover rounded-xl border border-[#0F172A]/10" loading="lazy" />
                   )}
                 </button>
               ))}
@@ -52,13 +52,13 @@ function PortfolioPage() {
         </section>
 
         {activeIndex !== null && (
-          <div className="fixed inset-0 z-[60] bg-[#F8FAFC]/90 backdrop-blur-sm flex items-center justify-center p-4 overflow-hidden" onClick={() => setActiveIndex(null)}>
+          <div className="fixed inset-0 z-[60] bg-[#F8F5EE]/95 backdrop-blur-sm flex items-center justify-center p-4 overflow-hidden" onClick={() => setActiveIndex(null)}>
             <div className="relative max-h-[90vh] max-w-[90vw] w-auto h-auto flex items-center" onClick={(e) => e.stopPropagation()}>
-              <button className="absolute -left-12 md:-left-16 text-[#0F172A] hover:text-[#0EA5E9] transition-colors p-2" onClick={(e) => navigate(-1, e)}>
+              <button className="absolute -left-12 md:-left-16 text-[#0F172A] hover:text-[#D4AF37] transition-colors p-2" onClick={(e) => navigate(-1, e)}>
                 <i className="ti ti-chevron-left text-4xl" />
               </button>
               
-              <button className="absolute -top-12 right-0 text-[#0F172A] hover:text-[#0EA5E9] transition-colors" onClick={() => setActiveIndex(null)}>
+              <button className="absolute -top-12 right-0 text-[#0F172A] hover:text-[#D4AF37] transition-colors" onClick={() => setActiveIndex(null)}>
                 <i className="ti ti-x text-3xl" />
               </button>
               
@@ -70,7 +70,7 @@ function PortfolioPage() {
                 <img src={PORTFOLIO_IMAGES[activeIndex]} alt="Portfolio zoom" className="max-h-[90vh] max-w-[85vw] object-contain rounded-lg shadow-2xl" />
               )}
               
-              <button className="absolute -right-12 md:-right-16 text-[#0F172A] hover:text-[#0EA5E9] transition-colors p-2" onClick={(e) => navigate(1, e)}>
+              <button className="absolute -right-12 md:-right-16 text-[#0F172A] hover:text-[#D4AF37] transition-colors p-2" onClick={(e) => navigate(1, e)}>
                 <i className="ti ti-chevron-right text-4xl" />
               </button>
             </div>

@@ -16,8 +16,9 @@ export default function RootLayout({
     <html lang="en" className="antialiased font-sans bg-[#F8FAFC]">
       <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
-        <link href="https://api.fontshare.com/v2/css?f[]=nohemi@400,500,600,700&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.3/dist/fonts/geist-sans/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
       </head>
       <body className="flex flex-col text-[#0F172A]">
         <SmoothScroll>{children}</SmoothScroll>

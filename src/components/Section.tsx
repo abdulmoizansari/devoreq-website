@@ -34,10 +34,10 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>() {
 export function SectionTitle({ eyebrow, title, light = false, accent }: { eyebrow?: string; title: string; light?: boolean; accent?: string }) {
   return (
     <div className="mb-12 reveal">
-      {eyebrow && <div className={`text-xs uppercase tracking-[0.3em] mb-3 ${light ? "text-[#38BDF8]" : "text-[#38BDF8]"}`}>{eyebrow}</div>}
-      <h2 className={`font-serif section-title ${light ? "text-[#0F172A]" : "text-[#0F172A]"}`}>
+      {eyebrow && <div className={`text-xs uppercase tracking-[0.3em] mb-3 ${light ? "text-[#D4AF37]" : "text-[#D4AF37]"}`}>{eyebrow}</div>}
+      <h2 className={`font-serif section-title ${light ? "text-[#FFFFFF]" : "text-[#0F172A]"}`}>
         {title}
-        {accent && <span className="text-[#0EA5E9]"> {accent}</span>}
+        {accent && <span className="text-[#D4AF37] italic"> {accent}</span>}
       </h2>
     </div>
   );
@@ -45,10 +45,10 @@ export function SectionTitle({ eyebrow, title, light = false, accent }: { eyebro
 
 export function PageHeader({ title, subtitle }: { title: string; subtitle: string }) {
   return (
-    <section className="bg-[#F8FAFC] pt-32 pb-16">
+    <section className="bg-[#0F172A] pt-32 pb-16 border-b border-[#D4AF37]/20">
       <div className="mx-auto max-w-7xl px-6">
-        <h1 className="font-serif section-title text-[#0F172A]">{title}</h1>
-        <p className="mt-4 text-[#64748B] max-w-2xl text-base md:text-lg">{subtitle}</p>
+        <h1 className="font-serif section-title text-[#FFFFFF]">{title}</h1>
+        <p className="mt-4 text-white/70 max-w-2xl text-base md:text-lg font-sans">{subtitle}</p>
       </div>
     </section>
   );

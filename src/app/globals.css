@@ -1,20 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-blue: #0EA5E9;
-  --color-brand-accent: #38BDF8;
-  --color-brand-bg: #F8FAFC;
+  --color-brand-dark: #0F172A;
+  --color-brand-gold: #D4AF37;
+  --color-brand-cream: #F8F5EE;
+  --color-brand-white: #FFFFFF;
+  
+  --color-brand-blue: #0F172A; /* Fallback for existing components */
+  --color-brand-accent: #D4AF37; /* Fallback */
+  --color-brand-bg: #F8F5EE;
   --color-brand-surface: #FFFFFF;
-  --color-brand-border: #E2E8F0;
+  --color-brand-border: rgba(15, 23, 42, 0.1);
   --color-brand-text: #0F172A;
-  --color-brand-muted: #64748B;
-  --color-brand-glow: #7DD3FC;
-  --font-serif: "Nohemi", sans-serif;
-  --font-sans: "Geist", sans-serif;
+  --color-brand-muted: #475569;
+  --color-brand-glow: #D4AF37;
+  
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
 }
 
 body {
-  background: linear-gradient(to bottom right, #F8FAFC, #EFF6FF);
+  background-color: #F8F5EE;
   min-height: 100vh;
   color: #0F172A;
   font-family: var(--font-sans), sans-serif;
@@ -22,7 +28,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, .font-serif {
-  font-family: var(--font-serif), sans-serif;
+  font-family: var(--font-serif), serif;
 }
 
 /* Base Typographic Utility Classes for the System */
@@ -117,16 +123,25 @@ h1, h2, h3, h4, h5, h6, .font-serif {
   border-color: #38BDF8;
   transform: translateY(-2px); 
   box-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
-}
-
 .card-hover { 
   transition: transform .3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow .3s cubic-bezier(0.4, 0, 0.2, 1), border-color .3s ease; 
   border-radius: 24px !important;
 }
-.card-hover:hover { 
-  transform: translateY(-4px); 
-  box-shadow: 0 10px 40px -10px rgba(14,165,233,.1), 0 20px 40px -20px rgba(0,0,0,.04); 
-  border-color: #7DD3FC;
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.1);
+}
+
+.btn-gold {
+  @apply inline-flex items-center px-6 py-3 bg-[#D4AF37] text-white font-medium rounded-md hover:bg-[#c39b2b] transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl hover:shadow-[#D4AF37]/20;
+}
+
+.btn-outline {
+  @apply inline-flex items-center px-6 py-3 border border-[#0F172A] text-[#0F172A] font-medium rounded-md hover:bg-[#0F172A] hover:text-[#F8F5EE] transition-all transform hover:-translate-y-1;
+}
+
+.btn-outline-light {
+  @apply inline-flex items-center px-6 py-3 border border-[#F8F5EE] text-[#F8F5EE] font-medium rounded-md hover:bg-[#F8F5EE] hover:text-[#0F172A] transition-all transform hover:-translate-y-1;
 }
 
 /* Animations */
